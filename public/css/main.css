@@ -11,23 +11,24 @@
     --greenBkg: rgb(23,191,99,0.1);
     --blueBkg: rgb(212, 237, 255, 0.6);
     --spacing: 15px;
-
+    --textColor:black;
     --backgroundColor: #FFF;
 }
+
 :root[color-mode="dark"]{
     --blue: #f15b1f;
     --buttonHoverBg: #D4EDFF;
     --lightGrey: rgb(230, 236, 240);
-    --lightBlue: #9BD1F9;
+    --lightBlue:  #FAC49B;
     --greyText: rgb(101,119,134);
-    --greyButtonText: rgba(0,0,0,0.34);
+    --greyButtonText: rgba(300,300,300,0.34);
     --red: rgb(72, 226, 34);
     --redBkg: rgb(226, 34, 94, 0.1);
     --green: rgb(23,191,99);
     --greenBkg: rgb(23,191,99,0.1);
     --blueBkg: rgb(212, 237, 255, 0.6);
     --spacing: 15px;
-
+    --textColor:white;
     --backgroundColor: #121212;
 }
 
@@ -56,9 +57,11 @@ h1{
     font-size: 19px;
     font-weight: 800;
     margin: 0;
+	color:var(--textColor);
 }
 
 nav{
+    background-color: var(--backgroundColor);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -71,8 +74,8 @@ nav a{
     height: 55px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #212529;
+    justify-content: center;   
+    color:var(--textColor);
 }
 
 button{
@@ -136,17 +139,20 @@ nav a:hover{
     padding: var(--spacing);
     border-bottom: 10px solid rgb(230, 236, 240);
     flex-shrink: 0;
+
 }
 
 .modal .postFormContainer{
     border: none;
     padding: 0;
     padding-top: var(--spacing);
+
 }
 
 .modal .post{
     padding: 0;
     padding-bottom: var(--spacing);
+
 }
 
 .userImageContainer{
@@ -157,7 +163,8 @@ nav a:hover{
 .userImageContainer img{
     width: 100%;
     border-radius: 50%;
-    background-color: #FFF;
+    background-color: var(--backgroundColor);
+   
 }
 
 .textareaContainer{
@@ -170,6 +177,8 @@ nav a:hover{
     border: none;
     resize: none;
     font-size: 19px;
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
 }
 
 #submitPostButton{
@@ -191,6 +200,8 @@ nav a:hover{
     cursor: pointer;
     border-bottom: 1px solid var(--lightGrey);
     flex-shrink: 0;
+    color: var(--textColor);
+
 }
 
 .mainContentContainer{
@@ -267,6 +278,7 @@ nav a:hover{
     font-size: 13px;
     color: var(--greyText);
     margin-bottom: var(--spacing);
+	
 }
 
 .replyFlag{
@@ -280,6 +292,11 @@ nav a:hover{
 .post.largeFont .postBody, .post.largeFont .postFooter{
     font-size: 23px;
 }
+
+input[type=text]{
+background-color: var(--backgroundColor);
+
+}  
 
 .postContentContainer .header{
     display: flex;
@@ -344,6 +361,7 @@ nav a:hover{
     display: flex;
     flex-direction: column;
     padding: 0 var(--spacing);
+    color: var(--textColor);
 }
 
 .followersContainer .value{
@@ -402,6 +420,7 @@ nav a:hover{
 .user .userDetailsContainer{
     flex: 1;
     padding: 0 var(--spacing);
+
 }
 
 .profilePictureButton, .coverPhotoButton{
@@ -609,4 +628,178 @@ nav a:hover{
     display: flex;
     padding: var(--spacing);
     flex-shrink: 0;
+}
+
+.chatContainer .footer textarea{
+    flex: 1;
+    resize: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 18px;
+    border: none;
+    padding: 8px 13px;
+    height: 41px;
+}
+
+.chatContainer .footer button{
+    background-color: transparent;
+    color: var(--blue);
+    font-size: 24px;
+}
+
+.chatMessages{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: var(--spacing);
+}
+
+.chatImagesContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.chatImagesContainer img{
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FFF;
+    border-radius: 50%;
+}
+
+.chatImagesContainer .userCount{
+    height: 40px;
+    width: 40px;
+    background-color: #F1F1F1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border: 2px solid #FFF;
+}
+
+.chatImagesContainer img:not(:last-child), 
+.chatImagesContainer .userCount {
+    margin-left: -10px;
+}
+
+#chatNameTextbox{
+    width: 100%;
+}
+
+.chatMessages .message{
+    padding-bottom: 2px;
+    list-style: none;
+    display: flex;
+    align-items: flex-end;
+    flex-shrink: 0;
+}
+
+.typingDots img, 
+.chatMessages .message .messageBody{
+    background-color: #F1F0F0;
+    padding: 6px 12px;
+    border-radius: 18px;
+    font-size: 14px;
+}
+.typingDots img{
+    height: 35px;
+}
+
+.typingDots{
+    padding: var(--spacing);
+    padding-bottom: 0;
+    display: none;
+}
+
+.chatMessages .message .messageContainer{
+    display: flex;
+    flex-direction: column;
+    max-width: 55%;
+}
+
+.chatMessages .message.mine .messageContainer{
+    align-items: flex-end;
+}
+
+.chatMessages .message.theirs .messageContainer{
+    align-items: flex-start;
+}
+
+.chatMessages .message.mine{
+    flex-direction: row-reverse;
+}
+
+.chatMessages .message.mine .messageBody{
+    background-color: var(--blue);
+    color: #FFF;
+}
+
+.chatMessages .message.mine.first .messageBody{
+    border-bottom-right-radius: 2px;
+}
+
+.chatMessages .message.mine:not(.first):not(.last) .messageBody{
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.chatMessages .message.mine.last .messageBody{
+    border-bottom-right-radius: 18px;
+}
+
+.chatMessages .message.mine.last:not(.first) .messageBody{
+    border-top-right-radius: 2px;
+}
+
+
+.chatMessages .message.theirs.first .messageBody{
+    border-bottom-left-radius: 2px;
+}
+
+.chatMessages .message.theirs.last .messageBody{
+    border-bottom-left-radius: 18px;
+}
+
+.chatMessages .message.theirs.last:not(.first) .messageBody{
+    border-top-left-radius: 2px;
+}
+
+.chatMessages .message.theirs:not(.first):not(.last) .messageBody{
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.senderName{
+    color: rgb(0,0,0,0.4);
+}
+
+.chatMessages .imageContainer{
+    height: 24px;
+    width: 24px;
+    margin-right: 7px;
+}
+
+.chatMessages img{
+    height: 100%;
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
+.chatMessages .message.last{
+    margin-bottom: 5px;
+}
+
+.loadingSpinnerContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.loadingSpinnerContainer img{
+    width: 50%;
+    max-width: 75px;
 }
